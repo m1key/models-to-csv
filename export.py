@@ -11,6 +11,6 @@ graph = Graph()
 
 with open('result.csv', 'w') as fp:
 	writer = csv.writer(fp, delimiter = ',')
+	writer.writerow(['model', 'category', 'price'])
 	for record in graph.cypher.execute(get_all_models_and_categories_and_prices):
-        	# print record.model_name + '::' + record.category_name + '::' + str(record.price_amount)
 		writer.writerow(record)
